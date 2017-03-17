@@ -6,7 +6,7 @@ class Trip(models.Model):
     description = models.TextField('Descrição')
     date = models.DateField('Data')
 
-    image = models.ImageField(upload_to='trips/images/', verbose_name='Imagem', null=True, blank=True)
+    image = models.ImageField(upload_to='trips/images', verbose_name='Imagem', null=True, blank=True)
 
     created_at = models.DateTimeField('Criado em', auto_now_add=True)#Atualiza sempre que for criado
     updated_at = models.DateTimeField('Atualizado em', auto_now=True)

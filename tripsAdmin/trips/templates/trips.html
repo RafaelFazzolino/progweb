@@ -1,8 +1,28 @@
 {% extends 'home.html' %}
 
+{% load static %}
 {% block content %}
 <h1> LISTAGEM DAS VIAGENS AQUI </h1>
 {% for trip in trips %}
-  <p>{{trip.title}}</p>
+<div class="media">
+  <div class="media-left media-middle">
+    <a href="{{trip.get_absolute_url}}">
+      {% if trip.image %}
+        <img class="media-object" src="{{ trip.image.url }}" alt="{{trip.title}}" width=100px height=100px>
+      {% else %}
+        <img class="media-object" src="{% static 'images/default_image.jpg' %}" title="{{trip.title}}" width=100px height=100px>
+      {% endif %}
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"><a href="{{trip.get_absolute_url}}" title="">{{trip.title}}</a></h4>
+    {{trip.description}}
+  </div>
+</div>
+{%empty%}
+<ul class="list-group">
+  <li class="list-group-item list-group-item-danger">Nenhum jogo disponível..</li>
+</ul>
+
 {% endfor %}
 {% endblock content %}
