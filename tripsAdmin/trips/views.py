@@ -1,5 +1,10 @@
 from django.shortcuts import render
 
-# Create your views here.
+from tripsAdmin.trips.models import Trip
+
 def trips(request):
-    return render(request, 'trips.html')
+    trip = Trip.objects.all()
+    context = {
+        "trips": trip
+    }
+    return render(request, 'trips.html', context)
