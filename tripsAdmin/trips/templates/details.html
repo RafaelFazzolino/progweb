@@ -1,0 +1,10 @@
+{% extends 'home.html' %}
+
+{% block content %}
+  <h1>{{trip.title}}</h1>
+  <h3>{{trip.description}}</h3>
+  <p> Esta viagem foi ótima, estavam presentes: Rafael, Alice, Leticia, Giovanni.. Ocorreu em {{trip.date}}. </p>
+  <h2> Fotos: </h2>
+
+  <img class="media-object" src="{{ trip.image.url }}" alt="{{trip.title}}" width=300px height=300px>
+{% endblock content %}

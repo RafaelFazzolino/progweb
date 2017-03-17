@@ -6,7 +6,7 @@
 {% for trip in trips %}
 <div class="media">
   <div class="media-left media-middle">
-    <a href="#">
+    <a href="{{ trip.get_absolute_url }}">
       {% if trip.image %}
         <img class="media-object" src="{{ trip.image.url }}" alt="{{trip.title}}" width=100px height=100px>
       {% else %}
